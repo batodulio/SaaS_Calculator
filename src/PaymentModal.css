@@ -1,0 +1,258 @@
+.payment-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.payment-overlay.light {
+  background: rgba(102, 126, 234, 0.3);
+}
+
+.payment-overlay.dark {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.payment-modal {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  backdrop-filter: blur(10px);
+  animation: slideUp 0.4s ease-out;
+}
+
+.payment-modal.dark {
+  background: rgba(26, 26, 46, 0.95);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.payment-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.payment-header h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+  color: #333;
+  font-weight: 700;
+}
+
+.payment-modal.dark .payment-header h2 {
+  color: #fff;
+}
+
+.modal-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+.payment-modal.dark .modal-subtitle {
+  color: #aaa;
+}
+
+.payment-message {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.payment-message p {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+  font-weight: 500;
+}
+
+.payment-modal.dark .payment-message p {
+  color: #ddd;
+}
+
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.payment-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  background: #f8f8f8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.payment-modal.dark .payment-button {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ddd;
+}
+
+.payment-button:hover {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.payment-button.selected {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.15);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.payment-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.payment-emoji {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.payment-name {
+  font-size: 13px;
+  text-align: center;
+}
+
+.payment-disclaimer {
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-left: 4px solid #667eea;
+}
+
+.payment-modal.dark .payment-disclaimer {
+  background: rgba(102, 126, 234, 0.05);
+}
+
+.payment-disclaimer p {
+  margin: 0;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.payment-modal.dark .payment-disclaimer p {
+  color: #aaa;
+}
+
+.payment-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn-cancel,
+.btn-proceed {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-cancel {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.payment-modal.dark .btn-cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ddd;
+}
+
+.btn-cancel:hover {
+  background: #e0e0e0;
+}
+
+.payment-modal.dark .btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-proceed {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-proceed:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-proceed:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.payment-footer {
+  text-align: center;
+}
+
+.payment-footer p {
+  margin: 0;
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+}
+
+.payment-modal.dark .payment-footer p {
+  color: #666;
+}
+
+@media (max-width: 480px) {
+  .payment-modal {
+    padding: 25px;
+    max-width: 95%;
+  }
+
+  .payment-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-header h2 {
+    font-size: 22px;
+  }
+}
